@@ -1,0 +1,1099 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Product Essentials — Delivery Guide</title>
+<meta name="description" content="Facilitation guide for the Product Essentials upskilling experience.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #F2F2F5;
+    --card: #FFFFFF;
+    --card-border: #E5E5EA;
+    --card-border-soft: #ECECF0;
+    --shadow-sm: 0 1px 2px rgba(15, 15, 30, 0.04);
+    --shadow-md: 0 1px 3px rgba(15, 15, 30, 0.05), 0 4px 12px rgba(15, 15, 30, 0.04);
+
+    --text: #18181B;
+    --text-soft: #3F3F46;
+    --text-muted: #71717A;
+    --text-faint: #A1A1AA;
+    --label: #6B7280;
+
+    --indigo: #5B5FED;
+    --indigo-deep: #4F46E5;
+    --indigo-tint: #EEF0FE;
+    --indigo-tint-deep: #E0E3FC;
+
+    --green: #16A34A;
+    --red: #DC2626;
+    --amber: #D97706;
+
+    --radius-sm: 8px;
+    --radius-md: 12px;
+    --radius-lg: 16px;
+
+    --font: 'Inter', system-ui, -apple-system, 'Segoe UI', sans-serif;
+  }
+
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--text);
+    font-family: var(--font);
+    font-size: 15px;
+    line-height: 1.55;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+
+  .wrap {
+    max-width: 1080px;
+    margin: 0 auto;
+    padding: 56px 24px 80px;
+  }
+
+  /* ============ HEADER ============ */
+  header.intro {
+    text-align: center;
+    margin-bottom: 32px;
+  }
+  .kicker {
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--label);
+    margin-bottom: 14px;
+  }
+  h1.title {
+    font-size: 30px;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    line-height: 1.2;
+    color: var(--text);
+    margin: 0 0 12px;
+  }
+  .subtitle {
+    font-size: 15px;
+    color: var(--text-muted);
+    margin: 0;
+  }
+
+  /* ============ TABS ============ */
+  .tabs {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 12px;
+    margin-bottom: 24px;
+  }
+  @media (max-width: 880px) {
+    .tabs { grid-template-columns: repeat(3, 1fr); }
+  }
+  @media (max-width: 520px) {
+    .tabs { grid-template-columns: repeat(2, 1fr); }
+  }
+
+  .tab {
+    background: var(--card);
+    border: 1.5px solid var(--card-border);
+    border-radius: var(--radius-md);
+    padding: 14px 12px 16px;
+    cursor: pointer;
+    text-align: center;
+    transition: all 0.18s ease;
+    font-family: inherit;
+    color: inherit;
+  }
+  .tab:hover {
+    border-color: var(--text-faint);
+    transform: translateY(-1px);
+    box-shadow: var(--shadow-sm);
+  }
+  .tab:focus-visible {
+    outline: 2px solid var(--indigo);
+    outline-offset: 2px;
+  }
+  .tab[aria-selected="true"] {
+    border-color: var(--indigo);
+    background: var(--indigo-tint);
+    box-shadow: 0 0 0 3px rgba(91, 95, 237, 0.08);
+  }
+  .tab-num {
+    display: block;
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--label);
+    margin-bottom: 6px;
+  }
+  .tab[aria-selected="true"] .tab-num { color: var(--indigo-deep); }
+  .tab-name {
+    display: block;
+    font-size: 16px;
+    font-weight: 700;
+    color: var(--text);
+    letter-spacing: -0.01em;
+    line-height: 1.2;
+    margin-bottom: 4px;
+  }
+  .tab[aria-selected="true"] .tab-name { color: var(--indigo-deep); }
+  .tab-sub {
+    display: block;
+    font-size: 12px;
+    color: var(--text-muted);
+    line-height: 1.35;
+  }
+
+  /* ============ CONTENT CARD ============ */
+  .panels {
+    background: var(--card);
+    border: 1px solid var(--card-border);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-md);
+    overflow: hidden;
+  }
+  .panel {
+    display: none;
+    padding: 36px 40px 32px;
+  }
+  @media (max-width: 600px) {
+    .panel { padding: 28px 24px 24px; }
+  }
+  .panel[data-active="true"] {
+    display: block;
+    animation: fadeUp 0.3s ease;
+  }
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(6px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .panel-intro {
+    font-size: 15px;
+    line-height: 1.6;
+    color: var(--text-soft);
+    margin: 0 0 28px;
+    max-width: 760px;
+  }
+  .panel-intro strong {
+    color: var(--text);
+    font-weight: 600;
+  }
+
+  /* ============ TWO-COLUMN GRID ============ */
+  .two-col {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 36px;
+    margin-bottom: 32px;
+  }
+  @media (max-width: 720px) {
+    .two-col { grid-template-columns: 1fr; gap: 28px; }
+  }
+
+  .col-section { margin-bottom: 24px; }
+  .col-section:last-child { margin-bottom: 0; }
+
+  .section-label {
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--label);
+    margin: 0 0 10px;
+  }
+  .section-body {
+    font-size: 14.5px;
+    line-height: 1.55;
+    color: var(--text-soft);
+  }
+  .section-body p { margin: 0 0 8px; }
+  .section-body p:last-child { margin-bottom: 0; }
+  .section-body strong { color: var(--text); font-weight: 600; }
+
+  ul.bullets {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  ul.bullets li {
+    position: relative;
+    padding: 4px 0 4px 18px;
+    font-size: 14.5px;
+    line-height: 1.55;
+    color: var(--text-soft);
+  }
+  ul.bullets li::before {
+    content: "•";
+    position: absolute;
+    left: 4px;
+    top: 4px;
+    color: var(--text-faint);
+    font-weight: 700;
+  }
+  ul.bullets li strong { color: var(--text); font-weight: 600; }
+
+  ul.bullets.do li::before { content: "✓"; color: var(--green); font-weight: 600; }
+  ul.bullets.dont li::before { content: "✕"; color: var(--red); font-weight: 600; }
+
+  .tag {
+    display: inline-block;
+    background: var(--indigo-tint);
+    color: var(--indigo-deep);
+    font-size: 11px;
+    font-weight: 600;
+    padding: 2px 8px;
+    border-radius: 6px;
+    letter-spacing: 0.02em;
+    margin-bottom: 6px;
+  }
+
+  .callout {
+    background: var(--indigo-tint);
+    border-radius: var(--radius-sm);
+    padding: 14px 16px;
+    font-size: 14px;
+    color: var(--text);
+    line-height: 1.55;
+    margin: 0 0 24px;
+    border-left: 3px solid var(--indigo);
+    max-width: 760px;
+  }
+  .callout strong { font-weight: 600; }
+  .callout-amber {
+    background: #FEF6E7;
+    border-left-color: var(--amber);
+    color: var(--text);
+  }
+
+  /* ============ FLOW DIAGRAM ============ */
+  .flow {
+    display: flex;
+    gap: 8px;
+    align-items: stretch;
+    margin: 8px 0 0;
+    flex-wrap: wrap;
+  }
+  .flow-step {
+    flex: 1;
+    min-width: 120px;
+    background: var(--bg);
+    border: 1px solid var(--card-border);
+    border-radius: var(--radius-sm);
+    padding: 12px;
+    position: relative;
+    text-align: left;
+  }
+  .flow-step.is-anchor {
+    background: var(--indigo);
+    border-color: var(--indigo);
+    color: white;
+  }
+  .flow-step .step-num {
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    margin-bottom: 4px;
+  }
+  .flow-step.is-anchor .step-num { color: rgba(255,255,255,0.75); }
+  .flow-step .step-name {
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--text);
+    line-height: 1.3;
+    margin-bottom: 2px;
+  }
+  .flow-step.is-anchor .step-name { color: white; }
+  .flow-step .step-meta {
+    font-size: 11.5px;
+    color: var(--text-muted);
+    line-height: 1.35;
+  }
+  .flow-step.is-anchor .step-meta { color: rgba(255,255,255,0.85); }
+
+  /* ============ SLACK PROMPTS ============ */
+  .prompt-list { margin: 0; }
+  .prompt-row {
+    padding: 14px 0;
+    border-bottom: 1px solid var(--card-border-soft);
+  }
+  .prompt-row:last-child { border-bottom: none; }
+  .prompt-row:first-child { padding-top: 0; }
+  .prompt-type {
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--indigo-deep);
+    margin-bottom: 6px;
+  }
+  .prompt-text {
+    font-size: 14px;
+    line-height: 1.55;
+    color: var(--text-soft);
+    margin-bottom: 4px;
+  }
+  .prompt-text em {
+    color: var(--text);
+    font-style: italic;
+    font-weight: 500;
+  }
+  .prompt-why {
+    font-size: 12.5px;
+    color: var(--text-muted);
+    line-height: 1.45;
+  }
+
+  /* ============ CHECKLIST ============ */
+  .checklist-progress {
+    background: var(--text);
+    color: white;
+    padding: 14px 18px;
+    border-radius: var(--radius-sm);
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-bottom: 24px;
+  }
+  .progress-meta {
+    font-size: 12.5px;
+    font-weight: 500;
+    letter-spacing: 0.02em;
+    flex-shrink: 0;
+  }
+  .progress-meta strong { color: #C7C9FA; font-weight: 600; }
+  .progress-track {
+    flex: 1;
+    height: 6px;
+    background: rgba(255, 255, 255, 0.15);
+    border-radius: 3px;
+    overflow: hidden;
+  }
+  .progress-fill {
+    height: 100%;
+    background: var(--indigo);
+    border-radius: 3px;
+    width: 0%;
+    transition: width 0.4s ease;
+  }
+  .reset-btn {
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    color: white;
+    font-family: inherit;
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.04em;
+    padding: 5px 10px;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background 0.15s ease;
+  }
+  .reset-btn:hover {
+    background: rgba(255, 255, 255, 0.2);
+  }
+
+  .check-section {
+    margin-bottom: 24px;
+  }
+  .check-section h4 {
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--label);
+    margin: 0 0 8px;
+    display: flex;
+    justify-content: space-between;
+  }
+  .section-count {
+    color: var(--text-muted);
+    font-weight: 500;
+    letter-spacing: 0.04em;
+  }
+  .check-item {
+    display: flex;
+    gap: 12px;
+    padding: 10px 0;
+    border-bottom: 1px solid var(--card-border-soft);
+    cursor: pointer;
+    user-select: none;
+    align-items: flex-start;
+    transition: background 0.12s ease;
+  }
+  .check-item:hover { background: rgba(91, 95, 237, 0.03); }
+  .check-item:last-child { border-bottom: none; }
+  .check-box {
+    flex-shrink: 0;
+    width: 18px;
+    height: 18px;
+    border: 1.5px solid var(--text-faint);
+    border-radius: 4px;
+    margin-top: 1px;
+    position: relative;
+    transition: all 0.18s ease;
+    background: white;
+  }
+  .check-item[data-checked="true"] .check-box {
+    background: var(--indigo);
+    border-color: var(--indigo);
+  }
+  .check-item[data-checked="true"] .check-box::after {
+    content: "";
+    position: absolute;
+    left: 4px;
+    top: 0px;
+    width: 5px;
+    height: 10px;
+    border: solid white;
+    border-width: 0 2px 2px 0;
+    transform: rotate(45deg);
+  }
+  .check-text {
+    font-size: 14.5px;
+    line-height: 1.5;
+    color: var(--text);
+    transition: color 0.18s ease;
+  }
+  .check-item[data-checked="true"] .check-text {
+    color: var(--text-muted);
+    text-decoration: line-through;
+    text-decoration-color: var(--text-faint);
+  }
+
+  /* ============ NUMBERED PRINCIPLES ============ */
+  .principles {
+    counter-reset: principle;
+    margin: 0;
+  }
+  .principle {
+    display: grid;
+    grid-template-columns: 36px 1fr;
+    gap: 14px;
+    padding: 12px 0;
+    border-bottom: 1px solid var(--card-border-soft);
+    align-items: baseline;
+  }
+  .principle:last-child { border-bottom: none; }
+  .principle::before {
+    counter-increment: principle;
+    content: counter(principle, decimal-leading-zero);
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--indigo-deep);
+    letter-spacing: 0.02em;
+    font-variant-numeric: tabular-nums;
+  }
+  .principle-text {
+    font-size: 14.5px;
+    line-height: 1.5;
+    color: var(--text-soft);
+  }
+  .principle-text strong {
+    color: var(--text);
+    font-weight: 600;
+  }
+
+  /* ============ FOOTER / CTA ============ */
+  .panel-footer {
+    margin-top: 36px;
+    padding-top: 24px;
+    border-top: 1px solid var(--card-border);
+    display: flex;
+    justify-content: center;
+  }
+  .cta-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: var(--indigo);
+    color: white;
+    font-family: inherit;
+    font-size: 14px;
+    font-weight: 600;
+    padding: 11px 20px;
+    border: none;
+    border-radius: var(--radius-sm);
+    cursor: pointer;
+    text-decoration: none;
+    transition: background 0.15s ease, transform 0.15s ease, box-shadow 0.15s ease;
+    box-shadow: 0 1px 2px rgba(79, 70, 229, 0.2);
+  }
+  .cta-btn:hover {
+    background: var(--indigo-deep);
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(79, 70, 229, 0.25);
+  }
+  .cta-btn:focus-visible {
+    outline: 2px solid var(--indigo-deep);
+    outline-offset: 2px;
+  }
+  .cta-btn svg {
+    width: 14px;
+    height: 14px;
+  }
+
+  .footer-meta {
+    margin-top: 24px;
+    text-align: center;
+    font-size: 12px;
+    color: var(--text-muted);
+  }
+
+  @media print {
+    body { background: white; }
+    .tabs { display: none; }
+    .panel { display: block !important; padding: 24px 0; page-break-after: always; }
+    .panels { box-shadow: none; border: none; }
+    .cta-btn { background: var(--indigo); -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+      animation-duration: 0.01ms !important;
+      transition-duration: 0.01ms !important;
+    }
+  }
+</style>
+</head>
+<body>
+
+<div class="wrap">
+
+  <header class="intro">
+    <div class="kicker">Product Essentials · Pilot</div>
+    <h1 class="title">Delivery Guide</h1>
+    <p class="subtitle">Click a section to explore.</p>
+  </header>
+
+  <div class="tabs" role="tablist">
+    <button class="tab" role="tab" aria-selected="true" data-tab="overview">
+      <span class="tab-num">01</span>
+      <span class="tab-name">Overview</span>
+      <span class="tab-sub">What this is</span>
+    </button>
+    <button class="tab" role="tab" aria-selected="false" data-tab="live">
+      <span class="tab-num">02</span>
+      <span class="tab-name">Live Session</span>
+      <span class="tab-sub">Product in Practice</span>
+    </button>
+    <button class="tab" role="tab" aria-selected="false" data-tab="slack">
+      <span class="tab-num">03</span>
+      <span class="tab-name">Slack Layer</span>
+      <span class="tab-sub">Async prompts</span>
+    </button>
+    <button class="tab" role="tab" aria-selected="false" data-tab="role">
+      <span class="tab-num">04</span>
+      <span class="tab-name">Delivery Role</span>
+      <span class="tab-sub">Do's &amp; don'ts</span>
+    </button>
+    <button class="tab" role="tab" aria-selected="false" data-tab="checklist">
+      <span class="tab-num">05</span>
+      <span class="tab-name">Prep Checklist</span>
+      <span class="tab-sub">Before you facilitate</span>
+    </button>
+    <button class="tab" role="tab" aria-selected="false" data-tab="why">
+      <span class="tab-num">06</span>
+      <span class="tab-name">Why It Matters</span>
+      <span class="tab-sub">Closing principles</span>
+    </button>
+  </div>
+
+  <div class="panels">
+
+    <!-- ============ 01 OVERVIEW ============ -->
+    <section class="panel" data-active="true" id="panel-overview" role="tabpanel">
+      <p class="panel-intro">Product Essentials is an upskilling experience — not a rerun of new-hire Day 1, and not a feature tour. It's designed to strengthen how learners <strong>use</strong> Thumbtack product knowledge in real conversations. This version is being piloted with Sales first.</p>
+
+      <div class="callout">
+        <strong>TL;DR for Delivery:</strong> success here depends on a shift from product knowledge to product use. If the live gets delivered as a recap, learners may leave feeling like they "attended training" but not noticeably more capable.
+      </div>
+
+      <div class="two-col">
+        <div>
+          <div class="col-section">
+            <h3 class="section-label">What it's for</h3>
+            <div class="section-body">
+              <p>Help learners connect product pieces, explain them clearly, and use product understanding to guide better judgment in real conversations.</p>
+              <p><strong>For Sales:</strong> ROI conversations, weekly budget framing, visibility vs. being chosen, stronger discovery, sharper coaching on what affects pro success.</p>
+            </div>
+          </div>
+          <div class="col-section">
+            <h3 class="section-label">What it is not</h3>
+            <ul class="bullets">
+              <li>A repeat of Day 1 product training</li>
+              <li>A lecture-heavy product overview</li>
+              <li>A feature memorization exercise</li>
+              <li>A standalone Sales methodology course</li>
+              <li>A replacement for live coaching, QA, or manager reinforcement</li>
+            </ul>
+          </div>
+        </div>
+
+        <div>
+          <div class="col-section">
+            <h3 class="section-label">Program flow</h3>
+            <div class="flow">
+              <div class="flow-step">
+                <div class="step-num">01</div>
+                <div class="step-name">Async</div>
+                <div class="step-meta">Foundation + Sales-specific courses</div>
+              </div>
+              <div class="flow-step">
+                <div class="step-num">02</div>
+                <div class="step-name">Slack</div>
+                <div class="step-meta">Scenarios &amp; trivia</div>
+              </div>
+              <div class="flow-step is-anchor">
+                <div class="step-num">03</div>
+                <div class="step-name">Live</div>
+                <div class="step-meta">Product in Practice + SME</div>
+              </div>
+            </div>
+          </div>
+          <div class="col-section">
+            <h3 class="section-label">How it's built</h3>
+            <div class="section-body">
+              <p>Most of the async courses come from <strong>Product Day 1</strong>. Several pieces that were previously <strong>live</strong> in Day 1 have been converted to async courses here, since these learners are already on phones and can't be pulled away as often as new hires.</p>
+              <p>That leaves <strong>one live session</strong> in Product Essentials: <em>Product in Practice</em>. Calibrate it for application, not first exposure — learners bring product foundation from the async.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="panel-footer">
+        <a class="cta-btn" href="https://coda.io/d/Product-Essentials_dPJemONJlHe/Start-Here_sufC2Wy5#_lu-t55e-" target="_blank" rel="noopener">
+          Open the Coda doc
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7"/><path d="M8 7h9v9"/></svg>
+        </a>
+      </div>
+    </section>
+
+    <!-- ============ 02 LIVE SESSION ============ -->
+    <section class="panel" data-active="false" id="panel-live" role="tabpanel">
+      <p class="panel-intro"><strong>Product in Practice</strong> is the live application session inside Product Essentials. It's built around coaching and analysis — not lecture. The session helps learners use product knowledge in higher-value conversations, with a Product SME on hand for the harder edge-case questions.</p>
+
+      <div class="callout">
+        <strong>The session feels like:</strong> "Let's slow down this moment and look at what a stronger move would be." <em>Not:</em> "Let me reteach all the content you should have already learned."
+      </div>
+
+      <div class="two-col">
+        <div>
+          <div class="col-section">
+            <h3 class="section-label">What the session is</h3>
+            <div class="section-body">
+              <p>For Sales, focuses on how product understanding shows up in:</p>
+            </div>
+            <ul class="bullets">
+              <li>Weekly budget hesitation</li>
+              <li>ROI pushback</li>
+              <li>Preventable late-stage objections</li>
+              <li>Stronger consultative reasoning</li>
+              <li>Earlier surfacing of what's shaping the pro's concern</li>
+            </ul>
+          </div>
+
+          <div class="col-section">
+            <h3 class="section-label">What it is not</h3>
+            <ul class="bullets">
+              <li>A basic product recap</li>
+              <li>A read-through of course content</li>
+              <li>A slide lecture</li>
+              <li>A generic discussion of "best practices"</li>
+              <li>A session where the trainer gives the answer too early</li>
+            </ul>
+          </div>
+        </div>
+
+        <div>
+          <div class="col-section">
+            <span class="tag">SME</span>
+            <h3 class="section-label">Product SME role</h3>
+            <div class="section-body">
+              <p>The SME is part of the design — not optional background support. They're there to handle the harder questions that come up <strong>once learners try to apply</strong> the content.</p>
+            </div>
+            <ul class="bullets">
+              <li>Unexpected product behavior</li>
+              <li>Hard-to-explain customer or pro experiences</li>
+              <li>Edge cases that came up on live calls</li>
+            </ul>
+          </div>
+
+          <div class="col-section">
+            <h3 class="section-label">Delivery's job for the SME</h3>
+            <ul class="bullets">
+              <li>Make sure the SME is invited and has access</li>
+              <li>Frame the SME segment clearly for learners</li>
+              <li>Keep questions specific and tied to real work</li>
+              <li>Route higher-complexity questions to the SME — don't guess</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="panel-footer">
+        <a class="cta-btn" href="https://coda.io/d/Product-Essentials_dPJemONJlHe/Start-Here_sufC2Wy5#_lu-t55e-" target="_blank" rel="noopener">
+          Open the Coda doc
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7"/><path d="M8 7h9v9"/></svg>
+        </a>
+      </div>
+    </section>
+
+    <!-- ============ 03 SLACK LAYER ============ -->
+    <section class="panel" data-active="false" id="panel-slack" role="tabpanel">
+      <p class="panel-intro">The Slack layer is part of the learning experience — not a separate add-on. Review the prompts and learner responses <strong>before</strong> the live, then use them to shape the <em>What We Saw This Week</em> section of the deck.</p>
+
+      <div class="two-col">
+        <div>
+          <div class="col-section">
+            <h3 class="section-label">Sample prompts</h3>
+            <div class="prompt-list">
+              <div class="prompt-row">
+                <div class="prompt-type">Scenario · Expectations</div>
+                <div class="prompt-text">A pro says: <em>"I thought once I signed up, I'd automatically start getting a steady stream of jobs."</em></div>
+                <div class="prompt-why">Reinforces marketplace foundation and expectation-setting.</div>
+              </div>
+              <div class="prompt-row">
+                <div class="prompt-type">Scenario · Visibility vs. hire</div>
+                <div class="prompt-text">A pro says: <em>"Customers are seeing my profile, so why aren't they hiring me?"</em></div>
+                <div class="prompt-why">Builds fluency around customer behavior, trust, and progression.</div>
+              </div>
+              <div class="prompt-row">
+                <div class="prompt-type">Scenario · Budget</div>
+                <div class="prompt-text">A pro says: <em>"I don't know if I want to commit to that weekly budget right now."</em></div>
+                <div class="prompt-why">Targets one of the clearest Sales gaps. Stronger language, no soft asks.</div>
+              </div>
+              <div class="prompt-row">
+                <div class="prompt-type">Scenario · ROI</div>
+                <div class="prompt-text">A pro says: <em>"Why should I put that much in if I don't know what I'll get back?"</em></div>
+                <div class="prompt-why">Targets ROI confidence — credible, consultative framing.</div>
+              </div>
+              <div class="prompt-row">
+                <div class="prompt-type">Observation Challenge</div>
+                <div class="prompt-text">A pro reached out via Opportunities but the customer couldn't see their phone number. <em>"What's the point?"</em></div>
+                <div class="prompt-why">Concrete product-behavior mystery using the CX app simulator.</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div>
+          <div class="col-section">
+            <h3 class="section-label">Activity types</h3>
+            <ul class="bullets">
+              <li><strong>Written scenario response</strong> — practice language in realistic moments</li>
+              <li><strong>Trivia / myth-or-reality</strong> — light fluency check with reasoning</li>
+              <li><strong>Product observation challenge</strong> — solve a product-behavior mystery</li>
+            </ul>
+          </div>
+
+          <div class="col-section">
+            <h3 class="section-label">How to use responses in the live</h3>
+            <div class="section-body">
+              <p>Before facilitating, pull from the week's responses:</p>
+            </div>
+            <ul class="bullets">
+              <li>One <strong>standout response</strong> worth highlighting</li>
+              <li>One <strong>common miss</strong> worth coaching against</li>
+              <li>One <strong>recurring question</strong> worth surfacing live</li>
+            </ul>
+          </div>
+
+          <div class="col-section">
+            <h3 class="section-label">Where it lands</h3>
+            <div class="section-body">
+              <p>Enter all three into the <em>What We Saw This Week</em> deck section before the session.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="panel-footer">
+        <a class="cta-btn" href="https://coda.io/d/Product-Essentials_dPJemONJlHe/Start-Here_sufC2Wy5#_lu-t55e-" target="_blank" rel="noopener">
+          Open the Coda doc
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7"/><path d="M8 7h9v9"/></svg>
+        </a>
+      </div>
+    </section>
+
+    <!-- ============ 04 DELIVERY ROLE ============ -->
+    <section class="panel" data-active="false" id="panel-role" role="tabpanel">
+      <p class="panel-intro">The Delivery Team's job is not just to "present" Product Essentials. The role is to <strong>preserve the design intent</strong> — and the live session is where most of that intent succeeds or breaks down.</p>
+
+      <div class="two-col">
+        <div>
+          <div class="col-section">
+            <h3 class="section-label">In the live, do</h3>
+            <ul class="bullets do">
+              <li>Open clearly and efficiently</li>
+              <li>Assume product foundation is already in place</li>
+              <li>Use slides as prompts for thinking, not lecture</li>
+              <li>Coach toward better diagnosis, not just better wording</li>
+              <li>Stay grounded in what the pro is really reacting to</li>
+              <li>Pull in the SME for higher-complexity product questions</li>
+              <li>Review Slack responses before the live</li>
+              <li>Enter Slack feedback into <em>What We Saw This Week</em></li>
+              <li>Complete the Coda speaker-notes doc before delivery</li>
+            </ul>
+          </div>
+        </div>
+        <div>
+          <div class="col-section">
+            <h3 class="section-label">Don't</h3>
+            <ul class="bullets dont">
+              <li>Reteach the full product curriculum</li>
+              <li>Turn the live into a lecture</li>
+              <li>Rush to the "best answer" before learners think</li>
+              <li>Drift into unrelated objection handling or generic Sales talk</li>
+              <li>Flatten coaching into script rewrites only</li>
+              <li>Guess on edge cases when the SME should be brought in</li>
+              <li>Treat the Slack layer as separate from the live</li>
+              <li>Leave the speaker-notes Coda doc incomplete</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="callout callout-amber">
+        <strong>Outstanding:</strong> a Coda doc was created to support the speaker notes, but it has not been filled out. Delivery is responsible for completing that setup as part of prep before facilitating — populating speaker notes, adding live and Slack examples, and adding facilitation reminders.
+      </div>
+
+      <div class="panel-footer">
+        <a class="cta-btn" href="https://coda.io/d/Product-Essentials_dPJemONJlHe/Start-Here_sufC2Wy5#_lu-t55e-" target="_blank" rel="noopener">
+          Open the Coda doc
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7"/><path d="M8 7h9v9"/></svg>
+        </a>
+      </div>
+    </section>
+
+    <!-- ============ 05 PREP CHECKLIST ============ -->
+    <section class="panel" data-active="false" id="panel-checklist" role="tabpanel">
+      <p class="panel-intro">Your working checklist before <em>Product in Practice</em>. State persists in this browser — close the tab and come back to it during prep.</p>
+
+      <div class="checklist-progress">
+        <div class="progress-meta"><strong id="progressCount">0/0</strong> complete</div>
+        <div class="progress-track"><div class="progress-fill" id="progressFill"></div></div>
+        <button class="reset-btn" id="resetBtn" type="button">Reset</button>
+      </div>
+
+      <div class="two-col">
+        <div>
+          <div class="check-section" data-section="content">
+            <h4>Content prep <span class="section-count" data-section-progress="content"></span></h4>
+            <div class="check-item" data-key="ck1"><div class="check-box"></div><div class="check-text">Reviewed the live session flow end-to-end</div></div>
+            <div class="check-item" data-key="ck2"><div class="check-box"></div><div class="check-text">Reviewed what the async courses were designed to do</div></div>
+            <div class="check-item" data-key="ck3"><div class="check-box"></div><div class="check-text">Confirmed what learners should already know coming in</div></div>
+          </div>
+
+          <div class="check-section" data-section="slack">
+            <h4>Slack layer <span class="section-count" data-section-progress="slack"></span></h4>
+            <div class="check-item" data-key="sk1"><div class="check-box"></div><div class="check-text">Reviewed the Slack prompts learners received this week</div></div>
+            <div class="check-item" data-key="sk2"><div class="check-box"></div><div class="check-text">Read through learner responses</div></div>
+            <div class="check-item" data-key="sk3"><div class="check-box"></div><div class="check-text">Identified one standout response</div></div>
+            <div class="check-item" data-key="sk4"><div class="check-box"></div><div class="check-text">Identified one common miss</div></div>
+            <div class="check-item" data-key="sk5"><div class="check-box"></div><div class="check-text">Identified one recurring question</div></div>
+            <div class="check-item" data-key="sk6"><div class="check-box"></div><div class="check-text">Entered the above into the <em>What We Saw This Week</em> deck section</div></div>
+          </div>
+        </div>
+
+        <div>
+          <div class="check-section" data-section="sme">
+            <h4>Product SME <span class="section-count" data-section-progress="sme"></span></h4>
+            <div class="check-item" data-key="sm1"><div class="check-box"></div><div class="check-text">SME invited to the live session</div></div>
+            <div class="check-item" data-key="sm2"><div class="check-box"></div><div class="check-text">SME has the access needed to join</div></div>
+            <div class="check-item" data-key="sm3"><div class="check-box"></div><div class="check-text">Clear plan for routing higher-complexity questions to the SME</div></div>
+          </div>
+
+          <div class="check-section" data-section="coda">
+            <h4>Coda speaker-notes doc <span class="section-count" data-section-progress="coda"></span></h4>
+            <div class="check-item" data-key="cd1"><div class="check-box"></div><div class="check-text">Speaker notes populated</div></div>
+            <div class="check-item" data-key="cd2"><div class="check-box"></div><div class="check-text">Live examples added</div></div>
+            <div class="check-item" data-key="cd3"><div class="check-box"></div><div class="check-text">Slack examples added</div></div>
+            <div class="check-item" data-key="cd4"><div class="check-box"></div><div class="check-text">Facilitation reminders added</div></div>
+            <div class="check-item" data-key="cd5"><div class="check-box"></div><div class="check-text">Doc is the working facilitation tool — not an empty shell</div></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="panel-footer">
+        <a class="cta-btn" href="https://coda.io/d/Product-Essentials_dPJemONJlHe/Start-Here_sufC2Wy5#_lu-t55e-" target="_blank" rel="noopener">
+          Open the Coda doc
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7"/><path d="M8 7h9v9"/></svg>
+        </a>
+      </div>
+    </section>
+
+    <!-- ============ 06 WHY IT MATTERS ============ -->
+    <section class="panel" data-active="false" id="panel-why" role="tabpanel">
+      <p class="panel-intro">Delivery matters here because the success of this training depends on a shift — from product <strong>knowledge</strong> to product <strong>use</strong>. Facilitated as designed, learners leave sharpened. Facilitated as a recap, they don't.</p>
+
+      <div class="two-col">
+        <div>
+          <div class="col-section">
+            <h3 class="section-label">If facilitated as designed</h3>
+            <div class="section-body">
+              <p>Learners should leave with:</p>
+            </div>
+            <ul class="bullets">
+              <li>Clearer judgment</li>
+              <li>Stronger language</li>
+              <li>Better recognition of what's really happening in the moment</li>
+              <li>Better ability to apply product understanding in their role</li>
+            </ul>
+          </div>
+          <div class="col-section">
+            <h3 class="section-label">Tone for tenured learners</h3>
+            <div class="section-body">
+              <p>Especially important: tenured learners should feel <strong>sharpened</strong>, not talked down to. The session should respect what they already bring to the work.</p>
+            </div>
+          </div>
+        </div>
+
+        <div>
+          <div class="col-section">
+            <h3 class="section-label">Top of mind for Delivery</h3>
+            <div class="principles">
+              <div class="principle"><div class="principle-text">Learners are <strong>not coming in cold</strong> — assume the async foundation.</div></div>
+              <div class="principle"><div class="principle-text">This experience <strong>connects the dots</strong>; it doesn't dump more information.</div></div>
+              <div class="principle"><div class="principle-text">The live is where <strong>application and coaching</strong> matter most.</div></div>
+              <div class="principle"><div class="principle-text">The goal is stronger <strong>use</strong> of product knowledge, not stronger recall.</div></div>
+              <div class="principle"><div class="principle-text">The strongest move is helping learners <strong>notice what's shaping the moment</strong>.</div></div>
+              <div class="principle"><div class="principle-text">The SME is part of the design — <strong>use them</strong>.</div></div>
+              <div class="principle"><div class="principle-text">The Slack prompts are <strong>part of the experience</strong>, not separate.</div></div>
+              <div class="principle"><div class="principle-text">The Coda doc must be <strong>fully completed</strong> before delivery.</div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="panel-footer">
+        <a class="cta-btn" href="https://coda.io/d/Product-Essentials_dPJemONJlHe/Start-Here_sufC2Wy5#_lu-t55e-" target="_blank" rel="noopener">
+          Open the Coda doc
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7"/><path d="M8 7h9v9"/></svg>
+        </a>
+      </div>
+    </section>
+
+  </div>
+
+  <div class="footer-meta">Product Essentials · Delivery Guide · Pilot v1</div>
+
+</div>
+
+<script>
+  const tabBtns = document.querySelectorAll('.tab');
+  const panels = document.querySelectorAll('.panel');
+
+  function activateTab(tabName) {
+    tabBtns.forEach(btn => {
+      btn.setAttribute('aria-selected', btn.dataset.tab === tabName);
+    });
+    panels.forEach(panel => {
+      panel.dataset.active = (panel.id === 'panel-' + tabName);
+    });
+    if (history.replaceState) {
+      history.replaceState(null, '', '#' + tabName);
+    }
+  }
+
+  tabBtns.forEach(btn => {
+    btn.addEventListener('click', () => activateTab(btn.dataset.tab));
+  });
+
+  const initialHash = window.location.hash.replace('#', '');
+  if (initialHash && Array.from(tabBtns).some(b => b.dataset.tab === initialHash)) {
+    activateTab(initialHash);
+  }
+
+  document.querySelector('.tabs').addEventListener('keydown', (e) => {
+    if (e.key !== 'ArrowLeft' && e.key !== 'ArrowRight') return;
+    const current = Array.from(tabBtns).findIndex(b => b.getAttribute('aria-selected') === 'true');
+    let next = e.key === 'ArrowRight' ? current + 1 : current - 1;
+    if (next < 0) next = tabBtns.length - 1;
+    if (next >= tabBtns.length) next = 0;
+    tabBtns[next].focus();
+    activateTab(tabBtns[next].dataset.tab);
+  });
+
+  // ============ CHECKLIST ============
+  const STORAGE_KEY = 'pe-delivery-checklist-v2';
+  const checkItems = document.querySelectorAll('.check-item');
+  const progressFill = document.getElementById('progressFill');
+  const progressCount = document.getElementById('progressCount');
+  const resetBtn = document.getElementById('resetBtn');
+
+  function loadState() {
+    try { return JSON.parse(localStorage.getItem(STORAGE_KEY) || '{}'); }
+    catch { return {}; }
+  }
+  function saveState(state) {
+    try { localStorage.setItem(STORAGE_KEY, JSON.stringify(state)); }
+    catch {}
+  }
+
+  function applyState() {
+    const state = loadState();
+    checkItems.forEach(item => {
+      item.dataset.checked = state[item.dataset.key] ? 'true' : 'false';
+    });
+    updateProgress();
+  }
+
+  function updateProgress() {
+    const total = checkItems.length;
+    const checked = document.querySelectorAll('.check-item[data-checked="true"]').length;
+    const pct = total === 0 ? 0 : (checked / total) * 100;
+    progressFill.style.width = pct + '%';
+    progressCount.textContent = checked + '/' + total;
+
+    document.querySelectorAll('.check-section').forEach(section => {
+      const items = section.querySelectorAll('.check-item');
+      const done = section.querySelectorAll('.check-item[data-checked="true"]').length;
+      const label = section.querySelector('[data-section-progress]');
+      if (label) label.textContent = done + ' / ' + items.length;
+    });
+  }
+
+  checkItems.forEach(item => {
+    item.addEventListener('click', () => {
+      const state = loadState();
+      const key = item.dataset.key;
+      state[key] = !state[key];
+      saveState(state);
+      item.dataset.checked = state[key] ? 'true' : 'false';
+      updateProgress();
+    });
+    item.addEventListener('keydown', (e) => {
+      if (e.key === ' ' || e.key === 'Enter') {
+        e.preventDefault();
+        item.click();
+      }
+    });
+    item.tabIndex = 0;
+    item.setAttribute('role', 'checkbox');
+  });
+
+  if (resetBtn) {
+    resetBtn.addEventListener('click', () => {
+      if (confirm('Reset all checklist progress?')) {
+        saveState({});
+        applyState();
+      }
+    });
+  }
+
+  applyState();
+</script>
+
+</body>
+</html>
